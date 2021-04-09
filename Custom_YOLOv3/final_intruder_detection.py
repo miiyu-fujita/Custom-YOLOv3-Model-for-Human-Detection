@@ -56,7 +56,9 @@ def download(path):
   from google.colab import files 
   files.download(path)
 
-"""Set up google drive"""
+"""
+
+Set up google drive"""
 
 # Commented out IPython magic to ensure Python compatibility.
 # %cd .. 
@@ -84,6 +86,9 @@ drive.mount('/content/gdrive')
 # unzip file (located in /darknet/data/obj)
 !unzip ../obj.zip -d data/
 
+!cp /mydrive/final_results_yolov3/test.zip ../
+!unzip ../test.zip -d data/
+
 """- configure files for training
 
 a) cfg file
@@ -106,21 +111,28 @@ a) cfg file
 !cp /mydrive/final_results_yolov3/obj.names ./data 
 !cp /mydrive/final_results_yolov3/obj.data ./data
 
-"""c) generate train.txt 
+"""c) generate train.txt and test.txt
 
-train.txt will hold all paths to our training images 
+train.txt will hold all paths to our training images, and test.txt will be used to test the performance of our model 
 """
 
 # upload generate_train.py script to cloud VM from google drive 
 !cp /mydrive/final_results_yolov3/generate_train.py ./
 
-# run python script
+#upload generate_test.py script to cloud VM from google drive
+!cp /mydrive/final_results_yolov3/generate_test.py ./
+
+# run python scripts
 
 !python generate_train.py
+!python generate_test.py
 
 !ls data/
 
 """Download pre-trained weights for convolutional layers 
+
+
+
 
 - this will help the object detector be more accurate and require less training time. Helps the model converge faster 
 """
@@ -138,6 +150,10 @@ train.txt will hold all paths to our training images
 # if runtime crashes, use backed up weights to pick up training where you left off 
 
 !./darknet detector train data/obj.data cfg/yolov3_custom.cfg /mydrive/final_results_yolov3/backup/yolov3_custom_last.weights -dont_show
+
+# accuracy?
+
+!./darknet detector map data/obj.data cfg/yolov3_custom.cfg /mydrive/final_results_yolov3/backup/yolov3_custom_last.weights
 
 """Run Custom Object Detector """
 
@@ -158,7 +174,55 @@ imShow('predictions.jpg')
 imShow('predictions.jpg')
 
 # run your custom detector with this command (upload an image to your google drive to test, thresh flag sets accuracy that detection must be in order to show it)
+!./darknet detector test data/obj.data cfg/yolov3_custom.cfg /mydrive/final_results_yolov3/backup/yolov3_custom_last.weights /mydrive/final_results_yolov3/images/me.jpg -thresh 0.3
+imShow('predictions.jpg')
+
+# run your custom detector with this command (upload an image to your google drive to test, thresh flag sets accuracy that detection must be in order to show it)
+!./darknet detector test data/obj.data cfg/yolov3_custom.cfg /mydrive/final_results_yolov3/backup/yolov3_custom_last.weights /mydrive/final_results_yolov3/images/munni.jpg -thresh 0.3
+imShow('predictions.jpg')
+
+# run your custom detector with this command (upload an image to your google drive to test, thresh flag sets accuracy that detection must be in order to show it)
+!./darknet detector test data/obj.data cfg/yolov3_custom.cfg /mydrive/final_results_yolov3/backup/yolov3_custom_last.weights /mydrive/final_results_yolov3/images/cooking.jpg -thresh 0.3
+imShow('predictions.jpg')
+
+# run your custom detector with this command (upload an image to your google drive to test, thresh flag sets accuracy that detection must be in order to show it)
+!./darknet detector test data/obj.data cfg/yolov3_custom.cfg /mydrive/final_results_yolov3/backup/yolov3_custom_last.weights /mydrive/final_results_yolov3/images/butthead.jpg -thresh 0.3
+imShow('predictions.jpg')
+
+# run your custom detector with this command (upload an image to your google drive to test, thresh flag sets accuracy that detection must be in order to show it)
+!./darknet detector test data/obj.data cfg/yolov3_custom.cfg /mydrive/final_results_yolov3/backup/yolov3_custom_last.weights /mydrive/final_results_yolov3/images/hand.jpg 
+imShow('predictions.jpg')
+
+# run your custom detector with this command (upload an image to your google drive to test, thresh flag sets accuracy that detection must be in order to show it)
+!./darknet detector test data/obj.data cfg/yolov3_custom.cfg /mydrive/final_results_yolov3/backup/yolov3_custom_last.weights /mydrive/final_results_yolov3/images/jacket.jpg -thresh 0.3
+imShow('predictions.jpg')
+
+# run your custom detector with this command (upload an image to your google drive to test, thresh flag sets accuracy that detection must be in order to show it)
+!./darknet detector test data/obj.data cfg/yolov3_custom.cfg /mydrive/final_results_yolov3/backup/yolov3_custom_last.weights /mydrive/final_results_yolov3/images/meme.jpg -thresh 0.3
+imShow('predictions.jpg')
+
+# run your custom detector with this command (upload an image to your google drive to test, thresh flag sets accuracy that detection must be in order to show it)
+!./darknet detector test data/obj.data cfg/yolov3_custom.cfg /mydrive/final_results_yolov3/backup/yolov3_custom_last.weights /mydrive/final_results_yolov3/images/happy.jpg -thresh 0.3
+imShow('predictions.jpg')
+
+# run your custom detector with this command (upload an image to your google drive to test, thresh flag sets accuracy that detection must be in order to show it)
+!./darknet detector test data/obj.data cfg/yolov3_custom.cfg /mydrive/final_results_yolov3/backup/yolov3_custom_last.weights /mydrive/final_results_yolov3/images/zoom.jpg 
+imShow('predictions.jpg')
+
+# run your custom detector with this command (upload an image to your google drive to test, thresh flag sets accuracy that detection must be in order to show it)
 !./darknet detector test data/obj.data cfg/yolov3_custom.cfg /mydrive/final_results_yolov3/backup/yolov3_custom_last.weights /mydrive/final_results_yolov3/images/books.jpg -thresh 0.3
+imShow('predictions.jpg')
+
+# run your custom detector with this command (upload an image to your google drive to test, thresh flag sets accuracy that detection must be in order to show it)
+!./darknet detector test data/obj.data cfg/yolov3_custom.cfg /mydrive/final_results_yolov3/backup/yolov3_custom_last.weights /mydrive/final_results_yolov3/images/dinner.jpg -thresh 0.3
+imShow('predictions.jpg')
+
+# run your custom detector with this command (upload an image to your google drive to test, thresh flag sets accuracy that detection must be in order to show it)
+!./darknet detector test data/obj.data cfg/yolov3_custom.cfg /mydrive/final_results_yolov3/backup/yolov3_custom_last.weights /mydrive/final_results_yolov3/images/ball.jpg 
+imShow('predictions.jpg')
+
+# run your custom detector with this command (upload an image to your google drive to test, thresh flag sets accuracy that detection must be in order to show it)
+!./darknet detector test data/obj.data cfg/yolov3_custom.cfg /mydrive/final_results_yolov3/backup/yolov3_custom_last.weights /mydrive/final_results_yolov3/images/hanna.jpg -thresh 0.3
 imShow('predictions.jpg')
 
 # run your custom detector with this command (upload an image to your google drive to test, thresh flag sets accuracy that detection must be in order to show it)
