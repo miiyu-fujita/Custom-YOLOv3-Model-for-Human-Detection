@@ -1,6 +1,8 @@
 # mais202-final-project
 Winter 2021 - McGill AI Society (MAIS202) Final Project 
 
+dataset used: https://storage.googleapis.com/openimages/web/index.html
+
 To test the model on your own images:
 1. open the following colab file: https://colab.research.google.com/drive/1ICeRi3TlQ6lSkv6Qynl3JVO7PLj02j38?usp=sharing
 2. Before proceeding, make sure to set up your google drive properly, following the instructions in the first text box in the colab file. 
