@@ -1,6 +1,8 @@
 # mais202-final-project
 Winter 2021 - McGill AI Society (MAIS202) Final Project 
 
+![mais202project_poster](https://user-images.githubusercontent.com/71932936/132144647-900dfa66-373a-4d2f-8b87-5ba424bf31d0.png)
+
 dataset used: https://storage.googleapis.com/openimages/web/index.html
 
 To test the model on your own images:
@@ -15,3 +17,4 @@ Repository Information:
 1. Custom_YOLOv3 contains the python script I have used to train my Custom YOLOv3 model. This code is heavily based on theAIGuys tutorial, which I have included as a reference in the project's presentation poster.
 2. Deliverables contains the deliverables I completed as I worked on my project. 
 3. Custom Yolov3 Model for Human Detection (pdf file) is the poster presentation for my project.
+
