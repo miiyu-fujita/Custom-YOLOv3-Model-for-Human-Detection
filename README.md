@@ -1,4 +1,4 @@
-# mais202-final-project
+# Custom YOLOv3 Model for Human Detection
 Winter 2021 - McGill AI Society (MAIS202) Final Project 
 
 ![mais202project_poster](https://user-images.githubusercontent.com/71932936/132144647-900dfa66-373a-4d2f-8b87-5ba424bf31d0.png)
