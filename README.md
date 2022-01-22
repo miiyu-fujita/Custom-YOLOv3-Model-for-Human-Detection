@@ -14,7 +14,7 @@ To test the model on your own images:
 5. You are now ready to run and test the custom yolov3 model to detect human subjects! Remember to change the path to your image file before running the model so that the model can find the test image properly. 
 
 Repository Information:
-1. Custom_YOLOv3 contains the python script I have used to train my Custom YOLOv3 model. This code is heavily based on theAIGuys tutorial, which I have included as a reference in the project's presentation poster.
+1. Custom_YOLOv3 contains the python script I have used to train my Custom YOLOv3 model. This code was written following theAIGuy's tutorial; thus, the code is heavily based on theAIGuy's code, which I have included as a reference in the project's presentation poster. 
 2. Deliverables contains the deliverables I completed as I worked on my project. 
 3. Custom Yolov3 Model for Human Detection (pdf file) is the poster presentation for my project.
 
